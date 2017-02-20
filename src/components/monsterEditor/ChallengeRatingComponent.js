@@ -3,6 +3,7 @@
 import React from 'react';
 import { DropdownButton } from 'react-bootstrap';
 import { MenuItem } from 'react-bootstrap';
+import {ScrollableMenuButton} from '../react-bootstrap-extension/ScrollableMenuButton'
 
 require('styles/monsterEditor/ChallengeRating.css');
 
@@ -96,7 +97,7 @@ class ChallengeRating extends React.Component {
       <div className="challengerating-component">
         <div>
           <span> Offensive Challenge Rating
-            <DropdownButton id="offensiveCr" title={this.state.selectedOffensiveCr.display} onSelect={this.changeSelectedOffensiveCr}>{crs} </DropdownButton>
+            <ScrollableMenuButton id="offensiveCr" title={this.state.selectedOffensiveCr.display} onSelect={this.changeSelectedOffensiveCr}>{crs} </ScrollableMenuButton>
           </span>
           <span> Defensive Challenge Rating
             <DropdownButton id="defensiveCr" title={this.state.defensiveCr.display } onSelect={this.changeDefensiveCr}>{crs} </DropdownButton>
