@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import { DropdownButton } from 'react-bootstrap';
 import { MenuItem } from 'react-bootstrap';
 import ScrollableMenuButton from '../react-bootstrap-extension/ScrollableMenuButton'
 

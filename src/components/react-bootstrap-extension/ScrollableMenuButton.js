@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import {Dropdown, DropdownToggle} from 'react-bootstrap';
+import {Dropdown} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 
 require('styles/react-bootstrap-extension/ScrollableDropdownButton.css');
@@ -12,7 +12,6 @@ class ScrollableMenu extends React.Component {
 
     this.onChange = e => this.props.onSelect(e);
 
-    this.state = { value: '' };
   }
 
   focusNext() {
@@ -26,7 +25,6 @@ class ScrollableMenu extends React.Component {
   render() {
     const children  = React.Children.map(this.props.children, (child) =>
                           {return React.cloneElement(child, {onSelect : this.props.onSelect})});
-    const { value } = this.state;
 
     return (
       <ul  className="dropdown-menu scroll-menu" style={{ padding: '' }}>
