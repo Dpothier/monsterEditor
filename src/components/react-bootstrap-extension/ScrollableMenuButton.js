@@ -1,15 +1,16 @@
 'use strict';
 
 import React from 'react';
-import {Dropdown} from 'react-bootstrap';
-import {DropdownToggle} from 'react-bootstrap';
+import {Dropdown, DropdownToggle} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
+
+require('styles/react-bootstrap-extension/ScrollableDropdownButton.css');
 
 class ScrollableMenu extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.onChange = e => this.setState({ value: e.target.value });
+    this.onChange = e => this.props.onSelect(e);
 
     this.state = { value: '' };
   }
@@ -23,50 +24,27 @@ class ScrollableMenu extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const children  = React.Children.map(this.props.children, (child) =>
+                          {return React.cloneElement(child, {onSelect : this.props.onSelect})});
     const { value } = this.state;
 
     return (
       <ul  className="dropdown-menu scroll-menu" style={{ padding: '' }}>
-            {React.Children.toArray(children).filter(child => (
-            !value.trim() || child.props.children.indexOf(value) !== -1
-            ))}
+            {children}
       </ul>
     );
   }
 }
-
-class CustomToggle extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-
-    this.props.onClick(e);
-  }
-
-  render() {
-    return (
-      <a href="" onClick={this.handleClick}>
-        {this.props.children}
-      </a>
-    );
-  }
-}
-
 
 class ScrollableMenuButton extends React.Component{
 
   render(){
     return (
       <Dropdown id="dropdown-custom-menu">
-        <CustomToggle bsRole="toggle"> toggle       </CustomToggle>
+        <Dropdown.Toggle bsRole="toggle"> {this.props.title}       </Dropdown.Toggle>
 
-        <ScrollableMenu bsRole="menu">
+        <ScrollableMenu bsRole="menu" onSelect = {this.props.onSelect}>
+          {this.props.children}
         </ScrollableMenu>
       </Dropdown>
     )

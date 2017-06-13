@@ -13,7 +13,6 @@ class AppComponent extends React.Component {
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
         <ChallengeRating />
-        <Game />
       </div>
     );
   }

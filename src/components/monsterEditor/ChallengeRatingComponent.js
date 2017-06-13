@@ -11,7 +11,7 @@ class ChallengeRating extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedOffensiveCr : {display: '0', value:0},
+      offensiveCr : {display: '0', value:0},
       defensiveCr : {display: '0', value:0},
       effectiveCr : 0,
       validCr : [
@@ -52,24 +52,24 @@ class ChallengeRating extends React.Component {
                ]
     }
 
-    this.changeSelectedOffensiveCr = this.changeSelectedOffensiveCr.bind(this);
+    this.changeOffensiveCr = this.changeOffensiveCr.bind(this);
     this.changeDefensiveCr = this.changeDefensiveCr.bind(this);
   }
 
-  changeSelectedOffensiveCr(selectedCr){
+  changeOffensiveCr(selectedCr){
     this.updateCr(selectedCr, this.state.defensiveCr);
   }
 
   changeDefensiveCr(selectedCr){
-    this.updateCr(this.state.selectedOffensiveCr, selectedCr);
+    this.updateCr(this.state.offensiveCr, selectedCr);
   }
 
-  updateCr(selectedOffensiveCr, defensiveCr){
-    var averageCr = (selectedOffensiveCr.value + defensiveCr.value) / 2;
+  updateCr(offensiveCr, defensiveCr){
+    var averageCr = (offensiveCr.value + defensiveCr.value) / 2;
     averageCr = this.RoundToValidCr(averageCr);
 
     this.setState({
-      selectedOffensiveCr : selectedOffensiveCr,
+      offensiveCr : offensiveCr,
       defensiveCr : defensiveCr,
       effectiveCr : averageCr
     })
@@ -97,12 +97,12 @@ class ChallengeRating extends React.Component {
       <div className="challengerating-component">
         <div>
           <span> Offensive Challenge Rating
-            <ScrollableMenuButton id="offensiveCr" title={this.state.selectedOffensiveCr.display} onSelect={this.changeSelectedOffensiveCr}>{crs} </ScrollableMenuButton>
+            <ScrollableMenuButton id="offensiveCr" title={this.state.offensiveCr.display} onSelect={this.changeOffensiveCr}>{crs}</ScrollableMenuButton>
           </span>
           <span> Defensive Challenge Rating
-            <DropdownButton id="defensiveCr" title={this.state.defensiveCr.display } onSelect={this.changeDefensiveCr}>{crs} </DropdownButton>
+            <ScrollableMenuButton id="defensiveCr" title={this.state.defensiveCr.display } onSelect={this.changeDefensiveCr}>{crs}</ScrollableMenuButton>
           </span>
-          <span> Effective Challenge Rating <input type="number" step="0.1" value={this.state.effectiveCr} disabled/> </span>
+          <span> Effective Challenge Rating <input className="effective-challenge-input-box" type="number" step="0.1" value={this.state.effectiveCr} disabled/></span>
         </div>
       </div>
     );
