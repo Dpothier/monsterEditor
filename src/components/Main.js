@@ -3,8 +3,6 @@ require('styles/App.css');
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import ChallengeRating from './monsterEditor/challengeRating/ChallengeRatingComponent.js';
-import GeneralInformation from './monsterEditor/generalInformation/GeneralInformationComponent.js';
 import MonsterStatblock from './monsterEditor/MonsterStatblockComponent.js';
 import MonsterEditorWorkflow from './monsterEditor/MonsterEditorWorkflowComponent.js';
 
@@ -13,8 +11,10 @@ class AppComponent extends React.Component {
     super();
     this.state = {
       monster : {
-        name: "Magic Armor",
-        size: "Medium"
+        name: 'Magic Armor',
+        size: 'Medium',
+        type: 'construct',
+        alignement: 'unaligned'
       }
     }
 

@@ -11,7 +11,7 @@ class MonsterStatblockComponent extends React.Component {
       <stat-block>
         <creature-heading>
           <h1>{monster.name}</h1>
-          <h2>{monster.size} construct, unaligned</h2>
+          <h2>{monster.size} {monster.type}, {monster.alignement}</h2>
         </creature-heading>
 
         <top-stats>
