@@ -87,17 +87,11 @@ class ChallengeRating extends React.Component {
   }
 
   render() {
-    const validCr = this.state.validCr;
-    const crs = validCr.map((cr, index) =>{
-      return (
-        <MenuItem key={index} eventKey={cr}>{cr.display}</MenuItem>
-      );
-    })
     return (
       <div className="challengerating-component">
         <div>
-          <DropdownInputComponent label="Offensive Challenge Rating" value={this.state.offensiveCr.display} onChange ={this.changeOffensiveCr}>{crs}</DropdownInputComponent>
-          <DropdownInputComponent label="Defensive Challenge Rating" value={this.state.defensiveCr.display} onChange ={this.changeDefensiveCr}>{crs}</DropdownInputComponent>
+          <DropdownInputComponent label="Offensive Challenge Rating" value={this.state.offensiveCr.display} onChange ={this.changeOffensiveCr}>{this.state.validCr}</DropdownInputComponent>
+          <DropdownInputComponent label="Defensive Challenge Rating" value={this.state.defensiveCr.display} onChange ={this.changeDefensiveCr}>{this.state.validCr}</DropdownInputComponent>
           <TextInputComponent label="Effective Challenge Rating" value={this.state.effectiveCr} disabled/>
         </div>
       </div>

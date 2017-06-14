@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import { MenuItem } from 'react-bootstrap';
 import TextInputComponent from '../genericComponents/TextInputComponent'
 import DropdownInputComponent from '../genericComponents/DropdownInputComponent'
 
@@ -48,30 +47,13 @@ class GeneralInformationComponent extends React.Component {
     this.changeMonsterType = this.changeMonsterType.bind(this);
   }
   render() {
-    const sizes = this.state.validSize.map((size, index) =>{
-      return (
-        <MenuItem key={index} eventKey={size}>{size.display}</MenuItem>
-      );
-    })
-
-    const alignements = this.state.validAlignement.map((alignement, index) =>{
-      return (
-        <MenuItem key={index} eventKey={alignement}>{alignement.display}</MenuItem>
-      );
-    })
-
-    const types = this.state.validTypes.map((type, index) =>{
-      return (
-        <MenuItem key={index} eventKey={type}>{type.display}</MenuItem>
-      );
-    })
 
     return (
       <div className="generalinformation-component">
         <TextInputComponent label="Name" value={this.props.monster.name} onChange={this.changeMonsterName}/>
-        <DropdownInputComponent label="Size" value={this.props.monster.size} onChange={this.changeMonsterSize}>{sizes}</DropdownInputComponent>
-        <DropdownInputComponent label="Type" value={this.props.monster.type} onChange={this.changeMonsterType}>{types}</DropdownInputComponent>
-        <DropdownInputComponent label="Alignement" value={this.props.monster.alignement} onChange={this.changeMonsterAlignement}>{alignements}</DropdownInputComponent>
+        <DropdownInputComponent label="Size" value={this.props.monster.size} onChange={this.changeMonsterSize}>{this.state.validSize}</DropdownInputComponent>
+        <DropdownInputComponent label="Type" value={this.props.monster.type} onChange={this.changeMonsterType}>{this.state.validTypes}</DropdownInputComponent>
+        <DropdownInputComponent label="Alignement" value={this.props.monster.alignement} onChange={this.changeMonsterAlignement}>{this.state.validAlignement}</DropdownInputComponent>
       </div>
     );
   };
