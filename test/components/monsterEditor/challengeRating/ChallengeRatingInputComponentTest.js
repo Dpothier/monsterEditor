@@ -7,16 +7,16 @@
 // import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
 
-import ChallengeRatingComponent from 'components/monsterEditor/ChallengeRatingComponent.js';
+import ChallengeRatingInputComponent from 'components/monsterEditor/challengeRating/ChallengeRatingInputComponent.js';
 
-describe('ChallengeRatingComponent', () => {
+describe('ChallengeRatingInputComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = createComponent(ChallengeRatingComponent);
+    component = createComponent(ChallengeRatingInputComponent);
   });
 
   it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('challengerating-component');
+    expect(component.props.className).to.equal('challengeratinginput-component');
   });
 });

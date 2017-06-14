@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { MenuItem } from 'react-bootstrap';
-import ScrollableMenuButton from '../react-bootstrap-extension/ScrollableMenuButton'
+import ChallengeRatingInput from './ChallengeRatingInputComponent'
+import ChallengeRatingResult from './ChallengeRatingResultComponent'
 
 require('styles/monsterEditor/ChallengeRating.css');
 
@@ -80,9 +81,9 @@ class ChallengeRating extends React.Component {
     for(i = 0; i < validCr.length - 1; i++){
       const roundingPoint = (validCr[i].value + validCr[i + 1].value) / 2;
       if(cr < roundingPoint)
-        return validCr[i].value;
+        return validCr[i].display;
     }
-    return validCr[validCr.length].value; //If no other CR fits, uses biggest
+    return validCr[validCr.length].display; //If no other CR fits, uses biggest
   }
 
   render() {
@@ -95,13 +96,9 @@ class ChallengeRating extends React.Component {
     return (
       <div className="challengerating-component">
         <div>
-          <span> Offensive Challenge Rating
-            <ScrollableMenuButton id="offensiveCr" title={this.state.offensiveCr.display} onSelect={this.changeOffensiveCr}>{crs}</ScrollableMenuButton>
-          </span>
-          <span> Defensive Challenge Rating
-            <ScrollableMenuButton id="defensiveCr" title={this.state.defensiveCr.display } onSelect={this.changeDefensiveCr}>{crs}</ScrollableMenuButton>
-          </span>
-          <span> Effective Challenge Rating <input className="effective-challenge-input-box" type="number" step="0.1" value={this.state.effectiveCr} disabled/></span>
+          <ChallengeRatingInput label="Offensive Challenge Rating" selected={this.state.offensiveCr.display} onSelect ={this.changeOffensiveCr}>{crs}</ChallengeRatingInput>
+          <ChallengeRatingInput label="Defensive Challenge Rating" selected={this.state.defensiveCr.display} onSelect ={this.changeDefensiveCr}>{crs}</ChallengeRatingInput>
+          <ChallengeRatingResult label="Effective Challenge Rating" value={this.state.effectiveCr}/>
         </div>
       </div>
     );

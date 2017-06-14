@@ -1,0 +1,9 @@
+.challengeratinginput-component {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.challengeratinginput-component > .ME-label {
+  display:inline-block;
+  width: 200px;
+}

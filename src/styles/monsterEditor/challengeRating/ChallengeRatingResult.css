@@ -1,0 +1,9 @@
+.challengeratingresult-component {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.challengeratingresult-component > .ME-label {
+  display:inline-block;
+  width: 200px;
+}
