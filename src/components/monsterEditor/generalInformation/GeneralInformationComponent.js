@@ -33,22 +33,22 @@ class GeneralInformationComponent extends React.Component {
 
     return (
       <div className="generalinformation-component">
-        <TextInputComponent className="ME-label" label="Monster Name" value={this.state.monsterName} onChange={this.changeMonsterName}/>
-        <DropdownInputComponent label="Monster Size" value={this.state.monsterSize.display} onChange={this.changeMonsterSize}>{sizes}</DropdownInputComponent>
+        <TextInputComponent className="ME-label" label="Monster Name" value={this.props.monster.name} onChange={this.changeMonsterName}/>
+        <DropdownInputComponent label="Monster Size" value={this.props.monster.size} onChange={this.changeMonsterSize}>{sizes}</DropdownInputComponent>
       </div>
     );
   };
 
   changeMonsterName(event){
-    this.setState({
-      monsterName : event.target.value
-    });
+    let monster = this.props.monster;
+    monster.name = event.target.value;
+    this.props.onChange(monster);
   }
 
     changeMonsterSize(newSize){
-      this.setState({
-        monsterSize : newSize
-      });
+      let monster = this.props.monster;
+      monster.size = newSize.display;
+      this.props.onChange(monster);
     }
 
 }

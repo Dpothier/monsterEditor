@@ -9,12 +9,30 @@ import MonsterStatblock from './monsterEditor/MonsterStatblockComponent.js';
 import MonsterEditorWorkflow from './monsterEditor/MonsterEditorWorkflowComponent.js';
 
 class AppComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      monster : {
+        name: "Magic Armor",
+        size: "Medium"
+      }
+    }
+
+    this.editMonster = this.editMonster.bind(this);
+  }
+
+  editMonster(monster){
+    this.setState({
+      monster: monster
+    })
+  }
+
   render() {
     const appLayout = (
   <Grid>
     <Row className="show-grid">
-      <Col xs={6} md={6}><MonsterEditorWorkflow/></Col>
-      <Col xs={6} md={6}><MonsterStatblock/></Col>
+      <Col xs={6} md={6}><MonsterEditorWorkflow monster={this.state.monster} onChange={this.editMonster}/></Col>
+      <Col xs={6} md={6}><MonsterStatblock monster={this.state.monster} onChange={this.editMonster}/></Col>
     </Row>
   </Grid>
 );

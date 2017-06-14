@@ -6,11 +6,12 @@ require('styles/monsterEditor/MonsterStatblock.css');
 
 class MonsterStatblockComponent extends React.Component {
   render() {
+    const monster = this.props.monster;
     return (
       <stat-block>
         <creature-heading>
-          <h1>Animated Armor</h1>
-          <h2>Medium construct, unaligned</h2>
+          <h1>{monster.name}</h1>
+          <h2>{monster.size} construct, unaligned</h2>
         </creature-heading>
 
         <top-stats>

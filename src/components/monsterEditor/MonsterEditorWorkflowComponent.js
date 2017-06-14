@@ -11,15 +11,6 @@ class MonsterEditorWorkflowComponent extends React.Component {
 
   constructor() {
     super();
-    this.state = {
-      key : "general"
-    }
-
-    this.handleSelect = this.handleSelect.bind(this);
-  }
-
-  handleSelect(key) {
-    this.setState({key})
   }
 
   render() {
@@ -28,10 +19,10 @@ class MonsterEditorWorkflowComponent extends React.Component {
         <div>
           <Tab.Content animation className="tab-content">
             <Tab.Pane eventKey="general">
-              <GeneralInformation/>
+              <GeneralInformation monster={this.props.monster} onChange={this.props.onChange}/>
             </Tab.Pane>
             <Tab.Pane eventKey="challenge">
-              <ChallengeRating/>
+              <ChallengeRating monster={this.props.monster} onChange={this.props.onChange}/>
             </Tab.Pane>
           </Tab.Content>
           <Nav bsStyle="pills">
