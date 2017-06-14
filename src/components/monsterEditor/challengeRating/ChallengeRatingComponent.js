@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { MenuItem } from 'react-bootstrap';
-import ChallengeRatingInput from './ChallengeRatingInputComponent'
-import ChallengeRatingResult from './ChallengeRatingResultComponent'
+import DropdownInputComponent from '../genericComponents/DropdownInputComponent'
+import TextInputComponent from '../genericComponents/TextInputComponent'
 
-require('styles/monsterEditor/ChallengeRating.css');
+require('styles/monsterEditor/challengeRating/ChallengeRating.css');
 
 class ChallengeRating extends React.Component {
   constructor() {
@@ -96,9 +96,9 @@ class ChallengeRating extends React.Component {
     return (
       <div className="challengerating-component">
         <div>
-          <ChallengeRatingInput label="Offensive Challenge Rating" selected={this.state.offensiveCr.display} onSelect ={this.changeOffensiveCr}>{crs}</ChallengeRatingInput>
-          <ChallengeRatingInput label="Defensive Challenge Rating" selected={this.state.defensiveCr.display} onSelect ={this.changeDefensiveCr}>{crs}</ChallengeRatingInput>
-          <ChallengeRatingResult label="Effective Challenge Rating" value={this.state.effectiveCr}/>
+          <DropdownInputComponent label="Offensive Challenge Rating" value={this.state.offensiveCr.display} onChange ={this.changeOffensiveCr}>{crs}</DropdownInputComponent>
+          <DropdownInputComponent label="Defensive Challenge Rating" value={this.state.defensiveCr.display} onChange ={this.changeDefensiveCr}>{crs}</DropdownInputComponent>
+          <TextInputComponent label="Effective Challenge Rating" value={this.state.effectiveCr} disabled/>
         </div>
       </div>
     );
