@@ -6,14 +6,14 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import ChallengeRating from './monsterEditor/challengeRating/ChallengeRatingComponent.js';
 import GeneralInformation from './monsterEditor/generalInformation/GeneralInformationComponent.js';
 import MonsterStatblock from './monsterEditor/MonsterStatblockComponent.js';
+import MonsterEditorWorkflow from './monsterEditor/MonsterEditorWorkflowComponent.js';
 
 class AppComponent extends React.Component {
   render() {
     const appLayout = (
   <Grid>
     <Row className="show-grid">
-      <Col xs={6} md={6}><ChallengeRating/>
-                        <GeneralInformation/></Col>
+      <Col xs={6} md={6}><MonsterEditorWorkflow/></Col>
       <Col xs={6} md={6}><MonsterStatblock/></Col>
     </Row>
   </Grid>

@@ -1,0 +1,7 @@
+.monstereditorworkflow-component {
+}
+
+.monstereditorworkflow-component > .tab-content{
+  display: block;
+  height: 300px;
+}
